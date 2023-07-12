@@ -1,0 +1,15 @@
+Psuedo code for the add to cart button example in the Experimentation A/B testing course
+
+let session = await recharge.auth.loginShopifyAppProxy();
+//This will create an object with a customerId attribute no matter what. When a customer isn't logged in the value is null
+
+if (session.customerId != null) {
+      console.log("Customer Id present");
+      const customer = await recharge.customer.getCustomer(session, { include: ['metafields'] });
+      if (customer.subscriptions_active_count > 0) {
+        console.log('Customer has active subscription(s)');
+      }
+    }
+//This checks for the customerId being not null. It will be null for those on the page that aren't logged into Shopify
+//If the customerId has a value then it can be used to get the customer and look at the subscriptions_active_count attribute
+//If that is greater than 0 the person logged in is a customer in Recharge with at least one active subscription
