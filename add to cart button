@@ -1,4 +1,4 @@
-Psuedo code for the add to cart button example in the Experimentation A/B testing course
+Pseudo code for the add to cart button example in the Experimentation A/B testing course.
 
 let session = await recharge.auth.loginShopifyAppProxy();
 //This will create an object with a customerId attribute no matter what. When a customer isn't logged in the value is null
